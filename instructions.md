@@ -1,23 +1,21 @@
 # DIO - Trilha Java Básico
-www.dio.me
+> 	www.dio.me
+>	trilha Bootcamp-Bradesco-java-native-cloud
 
 #### Autores
 - [Gleyson Sampaio](https://github.com/glysns)
 
 ## Controle de Fluxo - Desafio
 
-Vamos exercitar todo o conteúdo apresentado no módulo de Controle de Fluxo codificando o seguinte cenário.
-
 O sistema deverá receber dois parâmetros via terminal que representarão dois números inteiros, com estes dois números você deverá obter a quantidade de interações (for) e realizar a impressão no console (System.out.print) dos números incrementados, exemplo:
 
 * Se você passar os números 12 e 30, logo teremos uma interação (for) com 18 ocorrências para imprimir os números, exemplo: `"Imprimindo o número 1"`, `"Imprimindo o número 2"` e assim por diante.
 * Se o primeiro parâmetro for MAIOR que o segundo parâmetro, você deverá lançar a exceção customizada chamada de `ParametrosInvalidosException` com a segunda mensagem: "O segundo parâmetro deve ser maior que o primeiro"   
 
-
 1. Crie o projeto `DesafioControleFluxo`
 2. Dentro do projeto, crie a classe `Contador.java` para realizar toda a codificação do nosso programa.
 3. Dentro do projeto, crie a classe `ParametrosInvalidosException` que representará a exceção de negócio no sistema. 
-
+## Exemplo
 Abaixo temos um trecho de código no qual você poderá seguir alterando as partes que contenham `??`
 
 ```java
@@ -46,3 +44,14 @@ public class Contador {
 	}
 }
 ```
+## Conclusão
+
+Desafio realizado com sucesso e com algumas modificações em relação ao código original!
+- O método `lerParametro` foi adicionado para garantir que o usuário insira um número inteiro válido. Ele continua pedindo a entrada até que um número válido seja fornecido.
+- O `Scanner` não é mais fechado automaticamente, pois o `Scanner` para `System.in` não deve ser fechado em um programa que continua a executar. Em vez disso, o `Scanner` é fechado manualmente no bloco `finally`.
+- As mensagens de erro foram melhoradas para fornecer mais contexto ao usuário.
+- A lógica de leitura de entrada foi separada em um método `lerParametro`, o que melhora a modularidade e a legibilidade do código.
+- O método `printf` foi usado para formatar a saída de maneira mais legível.
+- Comentários foram adicionados para explicar o que cada parte do código faz.
+- Comentários, correções e sugestões são sempre bem vindas.
+
