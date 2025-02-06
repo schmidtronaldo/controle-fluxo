@@ -1,24 +1,17 @@
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Contador{
+public class Contador {
 
     public static void main(String[] args) {
-        Scanner terminal = new Scanner(System.in);
+        try (Scanner terminal = new Scanner(System.in)) {  
+            int inicio = lerParametro(terminal, "Digite o primeiro parâmetro (início):");
+            int fim = lerParametro(terminal, "Digite o segundo parâmetro (fim):");
 
-        try {
-            int parametroUm = lerParametro(terminal, "Digite o primeiro parâmetro:");
-            int parametroDois = lerParametro(terminal, "Digite o segundo parâmetro:");
-
-            contar(parametroUm, parametroDois);
+            contar(inicio, fim);
 
         } catch (ParametrosInvalidosException e) {
             System.out.println("Erro: " + e.getMessage());
-        } catch (InputMismatchException e) {
-            System.out.println("Erro: Entrada inválida. Por favor, digite um número inteiro.");
-        } finally {
-            terminal.close();
         }
     }
 
@@ -34,14 +27,16 @@ public class Contador{
         }
     }
 
-    static void contar(int parametroUm, int parametroDois) throws ParametrosInvalidosException {
-        if (parametroUm >= parametroDois) {
-            throw new ParametrosInvalidosException("O segundo parâmetro deve ser maior que o primeiro.");
+    static void contar(int inicio, int fim) throws ParametrosInvalidosException {
+        if (inicio >= fim) {
+            throw new ParametrosInvalidosException("O parâmetro final deve ser maior que o parâmetro inicial.");
         }
 
-        for (int i = parametroUm + 1; i <= parametroDois; i++) {
+        for (int i = inicio + 1; i <= fim; i++) {
             System.out.printf("Imprimindo o número %d%n", i);
         }
     }
-}
+    
+   
 
+}
